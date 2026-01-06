@@ -1,0 +1,301 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Inicio | SEMARTEC {% endblock %}
+{% block content %}
+
+<section class="con">
+
+  <div id="semartecCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+
+    <div class="carousel-inner rounded-4 shadow overflow-hidden">
+
+      <!-- Imagen 1 -->
+      <div class="carousel-item active">
+        <img src="{% static 'img/img8.webp' %}" class="carousel-img" alt="Primera imagen">
+        <div class="carousel-caption d-none d-md-block text-light">
+          <h5>Innovación SEMARTEC</h5>
+          <p>Proyectos que impulsan la ciencia y la tecnología.</p>
+        </div>
+      </div>
+
+      <!-- Imagen 2 -->
+      <div class="carousel-item">
+        <img src="{% static 'img/img9.webp' %}" class="carousel-img" alt="Segunda imagen">
+        <div class="carousel-caption d-none d-md-block text-light">
+          <h5>Colaboración</h5>
+          <p>Talento multidisciplinario creando soluciones reales.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<section class="container my-5">
+    <!-- inicio-->
+    <div class="card-group">
+      <div class="card">
+        <img src="{% static 'img/img1.webp' %}" class="imagenes1 img-fluid" alt="Mision" style="max-width:150px" />
+        <div class="card-body">
+          <h5 class="card-title">Nuestra Misión</h5>
+          <p class="card-text">
+            Mejorar la calidad de la educación en niñas, niños y jóvenes por
+            medio de las TICs y capacitación para contribuir al desarrollo
+            comunitario de la zona noroeste del Estado de México.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="{% static 'img/img3.webp' %}" class="imagenes1 img-fluid" alt="Visión" style="max-width:120px" />
+        <div class="card-body">
+          <h5 class="card-title">Nuestra Visión</h5>
+          <p class="card-text">
+            Ser una asociación civil consolidada, empoderando a las comunidades
+            con mejores oportunidades de desarrollo, logrando un mejor nivel
+            educativo por medio del acceso a herramientas tecnológica.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="{% static 'img/img2.webp' %}" class="imagenes1 img-fluid" alt="Objetivo" style="max-width:100px" />
+        <div class="card-body">
+          <h5 class="card-title">Nuestro Objetivo</h5>
+          <p class="card-text">
+            Mejorar la calidad de la educación en comunidades indígenas y
+            rurales por medio del acceso tecnológico.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+<div class="card my-4 p-3">
+  <img src="{% static 'img/img7.webp' %}" class="imagenes1 img-fluid" alt="Programa" style="max-width:120px" />
+  <div class="card-body">
+    <h5 class="card-title">Programa de incremento de acceso tecnológico en escuelas primarias</h5>
+    <p class="card-text">
+      Es un programa implementado por Semartec, A.C. con el objetivo de contribuir a mejorar la calidad de la educación
+      por medio de acceso tecnológico a comunidades rurales e indígenas del Municipio de San José del Rincón.
+    </p>
+  </div>
+</div>
+
+<h1>Acerca de nosotros</h1>
+
+
+<div class="row g-0 bg-body-secondary position-relative">
+  <div class="col-md-6 mb-md-0 p-md-4">
+    <img src="{% static 'img/img5.webp' %}" class="w-100" alt="...">
+  </div>
+  <div class="col-md-6 p-4 ps-md-0">
+    <h5 class="mt-0">Sembrando Arte y Tecnología para la Educación</h5>
+    <p>
+      Somos un grupo de jóvenes con conocimientos tecnológicos y muchas ganas de transformar nuestras 
+      comunidades Mazahuas. Nos unimos al ver las necesidades que hay en las comunidades indígenas y rurales del Municipio de San José del Rincón,
+      principalmente porque el nivel educativo en zonas marginadas es bajo y una de las causas es el limitado uso de la tecnología.
+      <br><br>
+      Gestionamos Proyectos de Acceso Tecnológico de la mano de cada uno de los beneficiarios de las comunidades indígenas y rurales 
+      para que también conozcan y utilicen las nuevas tecnologías que va demandando el Desarrollo Actual.
+    </p>
+  </div>
+</div>
+
+
+<div class="row g-0 bg-body-secondary position-relative">
+  <div class="col-md-6 mb-md-0 p-md-4">
+    <img src="{% static 'img/img6.webp' %}" class="w-100" alt="...">
+  </div>
+  <div class="col-md-6 p-4 ps-md-0">
+    <h5 class="mt-0">Se han presentado proyectos tecnológicos, pero al no darle continuidad sólo duran 6 meses.</h5>
+    <p>
+      Esto nos motivó a formar una organización para gestionar Proyectos de Acceso Tecnológico de la mano de cada uno de los beneficiarios de las comunidades indígenas y 
+      rurales para que también conozcan y utilicen las nuevas tecnologías que va demandando el desarrollo actual.
+      <br><br>
+
+    </p>
+  </div>
+</div>
+
+
+<!-- ========== CSS  ========== -->
+
+<style>
+
+/* ----------------------------- */
+/*      ESTILO GENERAL           */
+/* ----------------------------- */
+
+:root {
+    --color-primario: #0066ff;
+    --color-secundario: #0A66C2;
+    --color-texto: #1a2b3c;
+    --color-fondo-card: #ffffff;
+    --color-azul-suave: #e9f2ff;
+    --shadow-suave: 0px 4px 15px rgba(0, 0, 0, 0.10);
+    --shadow-fuerte: 0px 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.con { 
+    margin-top: 20px; 
+}
+
+
+/* ----------------------------- */
+/*      CARROUSEL MODERNO        */
+/* ----------------------------- */
+
+.carousel-inner {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-fuerte);
+}
+
+.carousel-item {
+    position: relative;
+    height: 55vh;
+    min-height: 350px;
+}
+
+.carousel-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    padding: 15px 20px;
+}
+
+.carousel-caption h5 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+}
+
+.carousel-caption p {
+    font-size: 1.1rem;
+    color: #e7e7e7;
+}
+
+
+/* ----------------------------- */
+/*            CARDS              */
+/* ----------------------------- */
+
+.card-group .card {
+    border-radius: 18px;
+    margin: 12px;
+    border: none;
+    background: var(--color-fondo-card);
+    box-shadow: var(--shadow-suave);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-group .card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-fuerte);
+}
+
+.card-title {
+    color: var(--color-primario);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.card-text {
+    color: var(--color-texto);
+    line-height: 1.55;
+}
+
+.imagenes1 {
+    display: block;
+    margin: 20px auto;
+    transition: transform .35s ease;
+}
+
+.imagenes1:hover {
+    transform: scale(1.1);
+}
+
+
+/* ----------------------------- */
+/*  BLOQUES INFORMATIVOS         */
+/* ----------------------------- */
+
+.bg-body-secondary {
+    background: var(--color-azul-suave) !important;
+}
+
+.row.g-0 {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-suave);
+    transition: box-shadow .3s ease;
+}
+
+.row.g-0:hover {
+    box-shadow: var(--shadow-fuerte);
+}
+
+.row h5 { 
+    color: var(--color-primario); 
+    font-weight: 700; 
+}
+
+.row p {
+    color: var(--color-texto);
+    line-height: 1.65;
+}
+
+
+/* ----------------------------- */
+/*         TITULOS               */
+/* ----------------------------- */
+
+h1 {
+    text-align: center;
+    padding: 15px;
+    color: var(--color-secundario);
+    background: rgba(230, 225, 235, 0.6);
+    border-radius: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow-suave);
+}
+
+
+/* ----------------------------- */
+/*         RESPONSIVE            */
+/* ----------------------------- */
+
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 40vh;
+        min-height: 250px;
+    }
+
+    .carousel-caption h5 { font-size: 1.4rem; }
+    .carousel-caption p { font-size: 0.9rem; }
+}
+
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}

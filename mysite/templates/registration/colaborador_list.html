@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <h1>Lista de Colaboradores</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Fotografía</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for colaborador in colaboradores %}
+        <tr>
+          <td>{{ colaborador.nombre }}</td>
+          <td>{{ colaborador.descripcion }}</td>
+          <td>
+            {% if colaborador.fotografia %}
+                <img src="{{ colaborador.fotografia.url }}" alt="Fotografía" style="height:100px;">
+            {% else %}
+                <img src="{% static 'img/placeholder.png' %}" alt="Sin fotografía" style="height:100px;">
+            {% endif %}
+          </td>
+          <td>
+            <a href="{% url 'colaborador_update' colaborador.pk %}">Editar</a>
+             <a href="{% url 'colaborador_delete' colaborador.pk %}">Eliminar</a>
+        
+          </td>
+           
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No hay colaboradores registrados.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'colaborador_create' %}"><h5>Crear nuevo colaborador</h5></a>
+  
+  <a href="{% url 'inicio2' %}" class="link-dark"><h5>Volver</h5> </a>
+  <a href="{% url 'inicio2' %}"><h5>Volver</h5> </a>
+  
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Colaboradores | SEMARTEC{% endblock %}
+{% block content %}
+<div class="container my-4">
+    <h1>Colaboradores</h1>
+    <h3 class="mb-3 titulo-centro">Socios que hacen posible alcanzar nuestras metas</h3>
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 g-4">
+        {% for c in colaboradores %}
+        <div class="col">
+            <div class="card h-100 text-center shadow-sm">
+                {% if c.fotografia %}
+                <img src="{{ c.fotografia.url }}" class="card-img-top card-img-fixed" alt="{{ c.nombre }}">
+                {% else %}
+                <img src="{% static 'img/placeholder.png' %}" class="card-img-top card-img-fixed" alt="{{ c.nombre }}">
+                {% endif %}
+                <div class="card-body">
+                    <h6 class="card-title mb-1">{{ c.nombre }}</h6>
+                    <p class="card-text small text-muted">{{ c.description|truncatechars:120 }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No hay colaboradores registrados.</p>
+        {% endfor %}
+    </div>
+</div>
+<style>
+/* --- Contenedor general --- */
+.titulo-centro {
+    text-align: center;
+    font-weight: 600;
+    color: #0f1010ff;
+}
+
+/* --- Tarjetas --- */
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    background-color: rgba(171, 225, 244, 1);
+    
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Imagen fija con proporción uniforme --- */
+.card-img-fixed {
+    width: 100%;
+    height: 200px;           /* Ajusta según tu diseño */
+    object-fit: cover;
+    border-bottom: 1px solid #f7eeeeff;
+}
+
+/* --- Títulos dentro de la tarjeta --- */
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0e0202ff;
+}
+
+/* --- Texto descriptivo --- */
+.card-text {
+    line-height: 1.3;
+    color: #141313ff;
+}
+
+/* --- Responsive ajustes menores --- */
+@media (max-width: 576px) {
+    .card-img-fixed {
+        height: 160px;
+    }
+}
+    
+</style> 
+{% endblock %}

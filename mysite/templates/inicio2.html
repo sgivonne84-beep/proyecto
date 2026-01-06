@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+  <ul>
+    <a href="{% url 'aviso_list' %}"><h1>Avisos</h1></a>
+    {% for aviso in avisos %}
+      <li>{{ aviso.titulo }}</li>
+    {% endfor %}
+    
+  </ul>
+ 
+  <ul>
+    <a href="{% url 'noticia_list' %}"><h1>Noticias</h1></a>
+    {% for noticia in noticias %}
+      <li>{{ noticia.titulo }}</li>
+    {% endfor %}
+    
+  </ul>
+ 
+  <ul>
+    <a href="{% url 'colaborador_list' %}"> <h1>Colaboradores</h1></a>
+    {% for colaborador in colaboradores %}
+      <li>{{ colaborador.nombre }}</li>
+    {% endfor %}
+    
+  </ul>
+
+  <a href="{% url 'contacto2' %}"> <h1>Contacto</h1></a>
+
+
+  <a href="{% url 'login' %}">Cerrar sesion</a>
+
+
+
+
+{% endblock %}

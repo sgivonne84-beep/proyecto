@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Inicio | SEMARTEC {% endblock %}
+
+{% block content %}
+  <h1>Confirmar Eliminación</h1>
+  <p>¿Estás seguro de que deseas eliminar el aviso "{{ aviso.titulo }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Eliminar</button>
+    <a href="{% url 'aviso_list' %}">Cancelar</a>
+  </form>
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contacto | SEMARTEC {% endblock %}
+{% block content %}
+<h1>Contáctenos </h1>
+<h5>Nos gustaria saber sobre tu opinion, para cualquier duda o sugerencia compartela con nosotros</h5>
+
+<form action="" method="post">
+  {% csrf_token %}
+
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre"><br><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+
+  <label for="mensaje">Mensaje:</label>
+  <textarea id="mensaje" name="mensaje"></textarea><br><br>
+
+  <input type="submit" value="Enviar">
+</form>
+
+<style>/* ----------------------------------- */
+/*         TÍTULOS DE PÁGINA           */
+/* ----------------------------------- */
+
+h1 {
+    text-align: center;
+    color: #258cf2ff;
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+h5 {
+    text-align: center;
+    color: #161617ff;
+    margin-bottom: 30px;
+}
+
+
+/* ----------------------------------- */
+/*      CONTENEDOR GENERAL FORM        */
+/* ----------------------------------- */
+
+form {
+    max-width: 650px;
+    margin: 0 auto;
+    background: #72b7f7ff;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    animation: fadeIn .5s ease;
+}
+
+
+/* ----------------------------------- */
+/*         CAMPOS DEL FORMULARIO       */
+/* ----------------------------------- */
+
+label {
+    font-weight: 600;
+    color: #0A66C2;
+    margin-bottom: 6px;
+    display: block;
+    font-size: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 2px solid #dce7f7;
+    background: #f7faff;
+    outline: none;
+    font-size: 1rem;
+    color: #334155;
+    transition: border .3s ease, box-shadow .3s ease, background .3s ease;
+}
+
+/* Hover y focus */
+input:focus,
+textarea:focus {
+    background: #ffffff;
+    border-color: #0A66C2;
+    box-shadow: 0 0 8px rgba(0,102,255,0.3);
+}
+
+textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+
+/* ----------------------------------- */
+/*            BOTÓN ENVIAR             */
+/* ----------------------------------- */
+
+input[type="submit"] {
+    display: block;
+    width: 45%;
+    margin: 20px auto 0;
+    padding: 12px;
+    background: #0066ff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background .3s ease, transform .2s ease;
+}
+
+input[type="submit"]:hover {
+    background: #004fcc;
+    transform: translateY(-3px);
+}
+
+input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+
+/* ----------------------------------- */
+/*              ANIMACIÓN              */
+/* ----------------------------------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ----------------------------------- */
+/*              RESPONSIVE             */
+/* ----------------------------------- */
+
+@media (max-width: 576px) {
+    form {
+        padding: 25px;
+    }
+    input[type="submit"] {
+        width: 70%;
+    }
+}
+</style>
+
+{% endblock %}
+

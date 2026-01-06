@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Inicio | SEMARTEC {% endblock %}
+
+{% block content %}
+  <h1>Lista de Avisos</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Fecha de Publicación</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for aviso in avisos %}
+        <tr>
+          <td>{{ aviso.titulo }}</td>
+          <td>{{ aviso.descripcion }}</td>
+          <td>{{ aviso.fecha_publicacion }}</td>
+          <td>
+            <a href="{% url 'aviso_update' aviso.pk %}">Editar</a>
+            <a href="{% url 'aviso_delete' aviso.pk %}">Eliminar</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'aviso_create' %}"><h5>Crear nuevo aviso</h5></a>
+   <a href="{% url 'inicio2' %}"><h5>Volver</h5> </a>
+{% endblock %}
+

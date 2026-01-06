@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Mensajes de Contacto</h2>
+
+<ul class="list-group">
+  {% for m in mensajes %}
+    <li class="list-group-item">
+      <strong>{{ m.nombre }}</strong> ({{ m.email }}) <br>
+      {{ m.mensaje }} <br>
+      <small class="text-muted">{{ m.fecha }}</small>
+    </li>
+  {% empty %}
+    <li class="list-group-item">No hay mensajes aún.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'inicio2' %}"><h5>Volver</h5> </a>
+
+{% endblock %}

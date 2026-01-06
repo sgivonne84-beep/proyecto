@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block title %}Avisos | SEMARTEC{% endblock %}
+{% block content %}
+<div class="container my-4">
+    <h3 class="mb-3 titulo-centro">Avisos</h3>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for a in avisos %}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ a.titulo }}</h5>
+                    <p class="card-text">{{ a.descripcion|linebreaksbr|truncatechars:180 }}</p>
+                    <div class="mt-auto text-muted small">{{ a.fecha_publicacion|date:"d/m/Y H:i" }}</div>
+                </div>
+            </div>
+        </div>
+        
+        {% empty %}
+        <p>No hay avisos por el momento.</p>
+        {% endfor %}
+    </div>
+</div>
+<style>
+    /* ------------------------------------
+   ESTILO GENERAL
+------------------------------------ */
+.titulo-centro {
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 1.8rem;
+    color: #0d2e6d; /* Azul institucional elegante */
+    margin-bottom: 2rem;
+}
+
+/* ------------------------------------
+   TARJETAS DE AVISOS
+------------------------------------ */
+.card {
+    border: 0;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 0;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sutil borde superior para profesionalismo */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, #0d2e6d, #1976d2);
+    opacity: 0.85;
+}
+
+/* Hover suave */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 14px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* ------------------------------------
+   CONTENIDO DE LA TARJETA
+------------------------------------ */
+.card-body {
+    padding: 1.4rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #1a1a1a;
+    margin-bottom: 0.6rem;
+}
+
+.card-text {
+    color: #161212ff;
+    line-height: 1.45;
+    flex-grow: 1;
+    font-size: 0.95rem;
+}
+
+/* Fecha del aviso */
+.card .small {
+    font-size: 0.83rem;
+    color: #131212ff !important;
+    margin-top: 1rem;
+    text-align: right;
+}
+
+/* ------------------------------------
+   RESPONSIVE
+------------------------------------ */
+@media (max-width: 576px) {
+    .titulo-centro {
+        font-size: 1.5rem;
+    }
+    .card-body {
+        padding: 1.1rem;
+    }
+}
+
+
+</style>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Inicio | SEMARTEC {% endblock %}
+{% block content %}
+
+
+<h1>Administrador</h1>
+<h3>Accede a nuestras funciones para administrador y crea o elimina segun tus intereses</h3>
+  <form method="post" class="1">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">iniciar sesion</button>
+  </form>
+{% endblock %}
+

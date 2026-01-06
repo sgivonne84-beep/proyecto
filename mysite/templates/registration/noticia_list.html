@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Lista de Noticias</h1>
+    {% if not noticias %}
+        <p>No hay noticias disponibles.</p>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Publicación</th>
+                    <th>Fotografía</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for noticia in noticias %}
+                    <tr>
+                        <td>{{ noticia.titulo }}</td>
+                        <td>{{ noticia.descripcion }}</td>
+                        <td>{{ noticia.fecha_publicacion }}</td>
+                        <td>
+                            {% if noticia.fotografia %}
+                                <img src="{{ noticia.fotografia.url }}" alt="fotografía">
+                            {% else %}
+                                <img src="ruta/a/imagen/default.jpg" alt="Sin fotografía">
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{% url 'noticia_update' noticia.pk %}">Editar</a>
+                            <a href="{% url 'noticia_delete' noticia.pk %}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    <a href="{% url 'noticia_create' %}"><h1>Crear nueva noticia</h1></a>
+    <a href="{% url 'login' %}"><h5>Volver</h5></a>
+    
+{% endblock %}
