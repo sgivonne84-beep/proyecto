@@ -40,10 +40,11 @@ INSTALLED_APPS = [
     'mysite',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
 
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -75,19 +76,6 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-       'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'BASE_SEMARTEC',
-        'USER': 'postgres',
-        'PASSWORD': 'segundo',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        'OPTIONS': {'client_encoding': 'UTF8'},
-    
-
-    }
-}
 import os
 
 DATABASES = {
@@ -97,10 +85,12 @@ DATABASES = {
         'USER': os.environ.get('postgres'),
         'PASSWORD': os.environ.get('segundo'),
         'HOST': os.environ.get('localhost'),
-        'PORT': '5432',
+        'PORT': os.environ.get('5432'),
         'OPTIONS': {'client_encoding': 'UTF8'},
     }
 }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -134,12 +124,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+# Configuración de archivos estáticos
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# Configuración de archivos media (si es necesario)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # >>> AGREGADo <<<
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -149,11 +140,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# django_project/settings.py
-LOGIN_REDIRECT_URL = 'aviso_list' 
-LOGIN_REDIRECT_URL = 'noticia_list' 
-LOGIN_REDIRECT_URL = 'colaborador_list' 
+# django_project/settings.py 
 LOGIN_REDIRECT_URL = 'inicio2' 
 LOGIN_URL = 'login'  #agregafdoo
+
+
 
 
