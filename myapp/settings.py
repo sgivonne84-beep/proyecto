@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ========================
 # SECURITY
 # ========================
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'temp-secret-key-for-testing')
 
 DEBUG = False
 
@@ -57,7 +57,7 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'mysite' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,7 +77,8 @@ TEMPLATES = [
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
+        default='sqlite:///db.sqlite3', conn_max_age=600,
+        ssl_require=True
     )
 }
 
@@ -103,7 +104,7 @@ USE_TZ = True
 # STATIC FILES (CSS, JS)
 # ========================
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'mysite' / 'staticfiles'
 
 STATICFILES_STORAGE = (
     'whitenoise.storage.CompressedManifestStaticFilesStorage'
