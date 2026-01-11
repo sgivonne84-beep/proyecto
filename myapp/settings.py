@@ -14,8 +14,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-tempkey12345')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['.onrender.com', 'proyecto-4-rfow.onrender.com']
 
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 # ========================
 # APPLICATIONS
 # ========================

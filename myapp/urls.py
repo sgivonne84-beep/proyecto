@@ -21,6 +21,10 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from mysite import views as myviews
 
+from mysite.utils import create_admin
+
+create_admin()  # Se ejecuta al iniciar la app
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mysite.urls')),
