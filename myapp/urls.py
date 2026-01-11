@@ -22,6 +22,8 @@ from django.contrib.auth import views as auth_views
 from mysite import views as myviews
 
 from mysite.utils import create_admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 create_admin()  # Se ejecuta al iniciar la app
 
@@ -35,4 +37,5 @@ urlpatterns = [
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+   
 
